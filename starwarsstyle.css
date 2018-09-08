@@ -1,0 +1,78 @@
+P { text-align: left }
+H1 { text-align: center }
+
+body {
+	font-size: 15px;
+}
+
+h1 {
+	font-size: 45px;
+}
+
+a {
+	color: black;
+	text-decoration: none; /* no underline */
+}
+
+#left {
+	width: 250px;
+	height: 1000px;
+	float: left;
+	display: inline;
+	padding-top: 30px;
+	padding-left: 30px;
+	margin: 0;
+	padding: 10;
+	background-color: #893939;
+	color: black;
+	font-size: 20px;
+}
+
+#main{
+	width: 1250px;
+	height: 1000px;
+	float: left;
+	display: inline;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0;
+	padding: 10;
+	background-color: black;
+	color: #893939;
+	text-align: center;
+	font-size: 40px;
+
+}
+
+#main-pic{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 750px;
+	height: 300px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Star Wars.jpg");
+	background-size: 100%;
+}
+
+#bottom {
+	position:fixed;
+    bottom:0;
+    width:1230px;
+    height:60px;  
+	background-color: #893939;
+	color: black;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding: 10;
+}
+
