@@ -76,3 +76,72 @@ a {
 	padding: 10;
 }
 
+#force-awakens-pic{
+	position: absolute;
+	top: 25%;
+	left: 50;
+	width: 300px;
+	height: 750px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Force Awakens.jpg");
+	background-size: 100%;
+}
+
+#stand-alone-pic{
+	position: absolute;
+	top: 25%;
+	left: 50;
+	width: 300px;
+	height: 750px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Rogue One.jpg");
+	--background-size: 100%;
+}
+
+#prequels-pic{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 750px;
+	height: 300px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Prequels.jpg");
+	background-size: 100%;
+}
+
+#original-pic{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 750px;
+	height: 300px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Original Trilogy.jpg");
+	background-size: 100%;
+}
+
+#ultimate-pic{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 750px;
+	height: 300px;
+	margin-top: 150px;
+	background-color: white;
+	color: white;
+	font-size: 20px;
+	background-image: url("Ultimate.jpg");
+	--background-size: 100%;
+}
