@@ -133,6 +133,7 @@ window.Modernizr = (function( window, document, undefined ) {
         return bound;
       };
     }
+	
 
     function setCss( str ) {
         mStyle.cssText = str;
