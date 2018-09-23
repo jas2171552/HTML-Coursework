@@ -14,6 +14,11 @@ a {
 	text-decoration: none; /* no hyptertext underline */
 }
 
+img {
+	max-height:100%;
+	max-width:100%;
+}
+
 fieldset {
 	width:750px;
 	
@@ -57,7 +62,7 @@ form {
 	//width: 1250px;
 	width: 100%;
 	margin-left: 200px;
-	height: 1000px;
+	height: 2000px;
 	//float: left;
 	//display: inline;
 	padding-top: 100px;
@@ -93,8 +98,8 @@ form {
 }
 
 #main-pic{
-	width: 700px;
-	height: 350px;
+	width: 1200px;
+	height: 500px;
 	margin-top: 25px;
 	font-size: 20px;
 	display: block;
@@ -104,71 +109,52 @@ form {
 }
 
 #force-awakens-pic{
-	position: absolute;
-	top: 25%;
-	left: 50;
-	width: 300px;
-	height: 750px;
-	margin-top: 150px;
-	background-color: white;
-	color: white;
+	width: 450px;
+	height: 600px;
+	margin-top: 25px;
 	font-size: 20px;
-	background-image: url("Force Awakens.jpg");
-	background-size: 100%;
+	display: block;
+    margin-left: 30%;
+    margin-right: auto;
+
 }
 
 #stand-alone-pic{
-	position: absolute;
-	top: 25%;
-	left: 50;
-	width: 300px;
-	height: 750px;
-	margin-top: 150px;
-	background-color: white;
-	color: white;
+	width: 1000px;
+	height: 700px;
+	margin-top: 50px;
 	font-size: 20px;
-	background-image: url("Rogue One.jpg");
-	--background-size: 100%;
+	display: block;
+    margin-left: 16%;
+    margin-right: auto;
 }
 
 #prequels-pic{
-	position: absolute;
-	top: 25%;
-	left: 25%;
-	width: 750px;
-	height: 300px;
-	margin-top: 150px;
-	background-color: white;
-	color: white;
+	width: 500px;
+	height: 360px;
+	margin-top: 25px;
 	font-size: 20px;
-	background-image: url("Prequels.jpg");
-	background-size: 100%;
+	display: block;
+    margin-left: 30%;
+    margin-right: auto;
 }
 
 #original-pic{
-	position: absolute;
-	top: 25%;
-	left: 25%;
-	width: 750px;
-	height: 300px;
-	margin-top: 150px;
-	background-color: white;
-	color: white;
+	width: 1000px;
+	height: 375px;
+	margin-top: 25px;
 	font-size: 20px;
-	background-image: url("Original Trilogy.jpg");
-	background-size: 100%;
+	display: block;
+    margin-left: 16%;
+    margin-right: auto;
 }
 
 #ultimate-pic{
-	position: absolute;
-	top: 25%;
-	left: 25%;
-	width: 750px;
-	height: 300px;
-	margin-top: 150px;
-	background-color: white;
-	color: white;
+	width: 500px;
+	height: 400px;
+	margin-top: 25px;
 	font-size: 20px;
-	background-image: url("Ultimate.jpg");
-	--background-size: 100%;
+	display: block;
+    margin-left: 16%;
+    margin-right: auto;
 }
