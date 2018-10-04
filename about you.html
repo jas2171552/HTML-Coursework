@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- 
+    Author: Jason Richmond
+	Date: 9/8/2018
+	CIS166:  Jason's Star Wars Collection
+   -->
+
+   <title>Jason's Star Wars Lego Collection</title>
+    <meta charset="utf-8">
+    <!-- 
+		<title>Jason's Star Wars Lego Collection</title>
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="modernizr.custom.05819.js"></script>
+	<link rel="stylesheet" href="starwarsstyle.css">
+	<script src="modernizr.custom.05819.js"></script>
+  </head>
+  <body>
+	<div id="header">
+		<p><center>Jason's Star Wars Lego Collection</center></p>
+	</div>
+	
+	<!--   left side navigation section -->
+	<div id="left"
+	    <p><a href="index.html">Home</a></p>
+	    <p><a href="original-trilogy.html">Original Trilogy</a></p>
+		<p><a href="prequels.html">Prequels</a></p>
+		<p><a href="first-order-trilogy.html">First Order Trilogy</a></p>
+		<p><a href="Stand-alone.html">Stand Alone</a></p>
+		<p><a href="ultimate-sets.html">Ultimate Sets</a></p>
+		<p><a href="about you.html">About You!</a></p>
+		
+		
+		<p></p>
+		<p></p>
+		<p>Select a movie below to see it's release date.</p>
+		<select id="release">
+		  <option value="Ep I">Ep I - Phantom Menace</option>
+		  <option value="Ep II">Ep II - Attack of the Clones</option>
+		  <option value="Ep III">Ep III - Revenge of the Sith</option>
+		  <option value="Ep IV">Ep IV - A New Hope</option>
+		  <option value="Ep V">Ep V - Empire Strike Back</option>
+		  <option value="Ep VI">Ep VI - Return of the Jedi</option>
+		  <option value="Ep VII">Ep VII - Force Awakens</option>
+		  <option value="Ep VIII">Ep VII - The Last Jedi</option>
+		  <option value="Solo">Star Wars Story - Solo</option>
+		  <option value="Rogue">Star Wars Story - Rogue One</option>
+		</select>
+		<button type="button" id="releaseDate">Submit</button>
+		<p id="vReleaseDateMsg"></p>
+	</div>
+	<!--   main body -->
+	<!--   Creates the table for the list and populates with the information
+			also runs the script to gather the users information and present it back to them along the bottom -->
+	<div id="main"
+		<pt2>MOST COMMON WEB SECURITY VULNERABILITIES</pt2>
+		<div id = "web-security">
+		<table style="width:90% TABLE CELLSPACING=2 CELLPADDING=4>
+		<col width="200">
+		<col width="200">
+		<col width="200">
+		<col width="200">
+		<col width="200">
+		<col width="200">
+			<tr>
+				<th style="width:16% align="left"><a1>1. SQL INJECTIONS</a1></th>
+				<th style="width:16% align="left"><a1>2. CROSS SITE SCRIPTING (XSS)</a1></th>
+				<th style="width:16% align="left"><a1>3. BROKEN AUTHENTICATION & SESSION MANAGEMENT</a1></th>
+				<th style="width:16% align="left"><a1>4. INSECURE DIRECT OBJECT REFERENCES</a1></th>
+				<th style="width:16% align="left"><a1>5. SECURITY MISCONFIGURATION</a1></th>
+				<th style="width:16% align="left"><a1>6. CROSS-SITE REQUEST FORGERY (CSRF)</a1></th>
+			</tr>
+			<tr>
+				<td valign="top"><a2>SQL injection is a type of web application security vulnerability in which an attacker attempts to use application code to access or corrupt database content. If successful, this allows the attacker to create, read, update, alter, or delete data stored in the back-end database. SQL injection is one of the most prevalent types of web application security vulnerabilities.</a2></td>
+				<td valign="top"><a2>Cross-site scripting (XSS) targets an application's users by injecting code, usually a client-side script such as JavaScript, into a web application's output. The concept of XSS is to manipulate client-side scripts of a web application to execute in the manner desired by the attacker. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface websites, or redirect the user to malicious sites.</a2></td>
+				<td valign="top"><a2>Broken authentication and session management encompass several security issues, all of them having to do with maintaining the identity of a user. If authentication credentials and session identifiers are not protected at all times an attacker can hijack an active session and assume the identity of a user.
+Do you need a Website Security review or Application Maintenance? Check out our Website Support page for more information.</a2></td>
+				<td valign="top"><a2>Insecure direct object reference is when a web application exposes a reference to an internal implementation object. Internal implementation objects include files, database records, directories, and database keys. When an application exposes a reference to one of these objects in a URL hackers can manipulate it to gain access to a user's personal data.</a2></td>
+				<td valign="top"><a2>Security misconfiguration encompasses several types of vulnerabilities all centered on a lack of maintenance or a lack of attention to the web application configuration. A secure configuration must be defined and deployed for the application, frameworks, application server, web server, database server, and platform. Security misconfiguration gives hackers access to private data or features and can result in a complete system compromise.</a2></td>
+				<td valign="top"><a2>Cross-Site Request Forgery (CSRF) is a malicious attack where a user is tricked into performing an action he or she didn't intend to do. A third-party website will send a request to a web application that a user is already authenticated against (e.g. their bank). The attacker can then access functionality via the victim's already authenticated browser. Targets include web applications like social media, in browser email clients, online banking, and web interfaces for network devices.</a2></td>
+			</tr>
+			</table>
+			
+			<table style="width:90% TABLE CELLSPACING=2 CELLPADDING=4>
+			<col width="200">
+			<col width="200">
+				<tr>
+					<th style="width:50% align="left"></th>
+					<th style="width:100% align="left"><a1>Information about you:</a1></th>
+					
+				</tr>
+				<tr>
+					<td align="left"><a2>Browser Online: </a2></td>
+					<td id="online"></td>
+				</tr>
+				
+				<tr>
+					<td align="left"><a2>Current Browser: </a2></td>
+					<td id="browser"></td>
+				</tr>
+				
+				<tr>
+					<td align="left"><a2>Browser Version: </a2></td>
+					<td id="browserVersion"></td>
+				</tr>
+				
+				<tr>
+					<td align="left"><a2><a2>Your Location: </a2></td>
+					<td id="geoLocation"></td>
+				</tr>
+				
+				<tr>
+					<td align="left"><a2>Your Operating System: </a2></td>
+					<td id="OS"></td>
+				</tr>
+				
+				<tr>
+					<td align="left"><a2>Your Resolution: </a2></td>
+					<td id="resolution"></td>
+				</tr>
+				
+				<script>
+					var vOnlineMsg = ""; 
+					vOnlineMsg += "<a2>Browser Online: " + navigator.onLine + "</a2>";
+					document.getElementById("online").innerHTML = vOnlineMsg;
+					
+					var vBrowserMsg = ""; 
+					vBrowserMsg += "<a2>Current Browser: " + navigator.appName + "</a2>";
+					document.getElementById("browser").innerHTML = vBrowserMsg;
+					
+					var vBrowserVersionMsg = ""; 
+					vBrowserVersionMsg += "<a2>Browser Version : " + navigator.appVersion + "</a2>";
+					document.getElementById("browserVersion").innerHTML = vBrowserVersionMsg;
+					
+					var vgeoLocationMsg = ""; 
+					vgeoLocationMsg += "<a2>Your Location: " + navigator.appLocation + "</a2>";
+					document.getElementById("geoLocation").innerHTML = vgeoLocationMsg;
+					
+					var vOSMsg = ""; 
+					vOSMsg += "<a2>Your Operating System: " + navigator.platform + "</a2>";
+					document.getElementById("OS").innerHTML = vOSMsg;
+					
+					var vResolutionMsg = ""; 
+					vResolutionMsg += "<a2>Your Resolution: " + screen.pixelDepth + "</a2>";
+					document.getElementById("resolution").innerHTML = vResolutionMsg;
+					
+				</script>
+		</table>	
+		</div>
+			
+	</div>
+	
+	<!--   bottom section -->
+	<div id="bottom">
+		<pt3>Jason Richmond	CIS166AA
+		<form id="calcYears">
+		<table style="width 50%" align="center">
+			<tr>
+				<td>	
+				<fieldset>
+					<legend>What Year were you born?</legend>
+					<table style="width 50%" align="center">
+					<tr>
+						<td>
+							<input type="number" min="1900" max="2018" id="birthYear" value="" />
+							<label for="birthYear"></label>
+						</td>
+						<td>
+							<button type="button" id="getMessage">Get Message</button>
+						</td>	
+						<td>
+							<label><p id="vMsg"></p></label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+			</tr>
+				</td>
+				</form>
+		
+		</pt3>
+	</div>
+	<script src="ft.js"></script>
+  </body>
+</html>
+

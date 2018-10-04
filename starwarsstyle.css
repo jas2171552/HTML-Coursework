@@ -14,6 +14,20 @@ a {
 	text-decoration: none; /* no hyptertext underline */
 }
 
+a1 {
+	font-size: 20px;
+	margin-left: 0px;
+	text-align: left;
+	LINE-HEIGHT: 0px;
+}
+
+a2 {
+	font-size: 15px;
+	margin-left: 0px;
+	text-align: left;
+	LINE-HEIGHT: 1px;
+}
+
 img {
 	max-height:100%;
 	max-width:100%;
@@ -152,6 +166,16 @@ form {
 #ultimate-pic{
 	width: 500px;
 	height: 400px;
+	margin-top: 25px;
+	font-size: 20px;
+	display: block;
+    margin-left: 16%;
+    margin-right: auto;
+}
+
+#web-security{
+	width: 1200px;
+	height: 1200px;
 	margin-top: 25px;
 	font-size: 20px;
 	display: block;

@@ -1,4 +1,22 @@
 		var msg = "";
+		
+		function userOnline () {
+			var onlineMsg = "test";
+			
+			if(navigator.onLine)
+			{
+				onlineMsg = "Browser is online";
+				document.getElementById("onlineMsg").innerHTML = msg;
+			}
+			else
+			{
+				onlineMsg = "Browser is offline";
+				document.getElementById("onlineMsg").innerHTML = msg;
+			}
+		}
+		document.getElementById("onlineMsg").addEventListener('online',userOnline,false);
+		document.getElementById("onlineMsg").addEventListener('offline',userOnline,false);
+		
 		function calcYears () {
 		
 					var releaseYear = 1977;
@@ -15,6 +33,8 @@
 						document.getElementById("vMsg").innerHTML = msg; 
 					}
 				}
+				
+				
 		document.getElementById("getMessage").addEventListener("click",calcYears,false);
 		
 		function getReleaseDate() {
@@ -76,5 +96,5 @@
 				return false;
 			}			
 		}
-		
+				
 		document.getElementById("releaseDate").addEventListener("click",getReleaseDate,false);
