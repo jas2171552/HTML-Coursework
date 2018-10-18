@@ -1,313 +1,225 @@
-		"use strict";
+"use strict";  // intereperet contents in JavaScript strict mode
 
-/* glabal variables */
-var twentyNine = document.createDocumentFragment();
-var thirty = document.createDocumentFragment();
-var thirtyOne = document.createDocumentFragment();;
-var formValidity = true;
-var fieldsetValidity = true;
-var email = "";
-var birthday = "";
-var option = "";
-	
-var msg = "";
+var dateObject = new Date();
 
-/* set up node building blocks for selecton list of days */
-/* used same example as the text */
-function setupDays () {
-   var dates = document.getElementById("birthDy").getElementsByTagName("option");
-   twentyNine.appendChild(dates[28].cloneNode(true)); 
-   // add 29th 
-   thirty.appendChild(dates[28].cloneNode(true)); 
-   thirty.appendChild(dates[29].cloneNode(true));
-   // add 29th & 30th
-   thirtyOne.appendChild(dates[28].cloneNode(true)); 
-   thirtyOne.appendChild(dates[29].cloneNode(true));
-   thirtyOne.appendChild(dates[30].cloneNode(true));
-   // add 29th, 30th, & 31st
-}
-
-/* used same example as the text */
-function updateDays() {
-   var birthDay = document.getElementById("birthDy");
-   var dates = birthDay.getElementsByTagName("option");
-   var birthMonth = document.getElementById("birthMo");
-   var birthYear = document.getElementById("birthYr");
-   var selectedMonth = birthMonth.options[birthMonth.selectedIndex].value;
-   while (dates[28]) {
-      // remove child with index of 28 until this index is empty
-      birthDay.removeChild(dates[28]);
-   }
-   if (birthYear.selectedIndex === -1) { 
-      // if no year is selected, choose the default year so length of Feb can be determined
-      birthYear.selectedIndex = 0;
-   }
-   if ( (selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "2016") || 
-	    (selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "2012") || 
-	    (selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "2008") ||
-	    (selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "2004") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "2000") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1996") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1992") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1988") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1984") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1980") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1976") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1972") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1968") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1964") ||
-		(selectedMonth === "2" && birthYear.options[birthYear.selectedIndex].value === "1960")) { 
-      // if leap year, Feb has 29 days
-      birthDay.appendChild(twentyNine.cloneNode(true));
-   } else if (selectedMonth === "4" || selectedMonth === "6" || selectedMonth === "9" || selectedMonth === "11") { 
-      // these months have 30 days
-      birthDay.appendChild(thirty.cloneNode(true));
-   } else if (selectedMonth === "1" || selectedMonth === "3" || selectedMonth === "5" || selectedMonth === "7" || selectedMonth === "8" || selectedMonth === "10" || selectedMonth === "12") { 
-      // these months have 31 days
-      birthDay.appendChild(thirtyOne.cloneNode(true));
-   }
-}
-	
-/* validate birth date fieldset */
-function validateBirthDate() {
-   var selectElements = document.querySelectorAll("#birthDate select");
-   var errorDiv = document.querySelector("#birthDate .errorMessage"); 
-   var fieldsetValidity = true;
-   var elementCount = selectElements.length;
-   var currentElement;
-   try {
-      for (var i = 0; i < elementCount; i++) {
-         currentElement = selectElements[i];
-         if (currentElement.selectedIndex === -1) {
-            currentElement.style.border = "1px solid red";
-            fieldsetValidity = false;
-         } else {
-            currentElement.style.border = "";
-         }
-      }
-      if (fieldsetValidity === false) {
-         throw "Please specify a birth date.";
-      } else {
-         //errorDiv.style.display = "none";
-         //errorDiv.innerHTML = "";
-      }
-   }
-   catch(msg) {
-      //errorDiv.style.display = "block";
-      //errorDiv.innerHTML = msg; 
-      //formValidity = false;
-	  window.alert(msg);
-   }
-}
-
-/* validate enrollment fieldset */
-function validateEnrollment() {
-   var errorDiv = document.querySelector("#enrollmentInfo .errorMessage");
-   var fieldsetValidity = true;
-   var emailNULL;
-   var emailElement = document.getElementById("emailAdd");
-   var selectElements = document.querySelectorAll("#enrollmentInfo select");
-   var elementCount = selectElements.length;
-   var enrollment = document.getElementsByName("contactType");
-   var ccNumErrMsg = document.getElementById("emailAddErrorMessage");
-   var currentElement;
-   try { 
-		/*if (!enrollment[0].checked && !enrollment[1].checked) { 
-			// verify that a card is selected
-			for (i = 0; i < 2; i++) {
-            enrollment[i].style.outline = "1px solid red";
-        }
-        fieldsetValidity = false;
-		} else {
-			for (i = 0; i < 2; i++) {
-            enrollment[i].style.outline = "";
-        }
-      }*/
+		var msg = "";
 		
-      if (emailElement.value === "") { 
-         // verify that an email has been entered
-         emailElement.style.background = "rgb(255,233,233)";
-         formValidity = false;
-		 emailNULL = TRUE;
-		 throw "must contain an email address.";
-      } else {
-         emailElement.style.background = "white";
-		 emailElement.style.background = "";
-         emailElement.style.display = "none";
-
-      }
-	  
-   }
-   catch(msg) {
-		if (emailNULL) {
-			ccNumElement.style.background = "rgb(255,233,233)";
-			ccNumErrMsg.style.display = "block";
-			ccNumErrMsg.innerHTML = "" + msg;
-			end;
-		} 
-	  document.getElementById("vReleaseDateMsg").innerHTML = msg;
-   }
-}
-
-/* validate Enrollment form */
-function validateForm(evt) {
-	    
-	if (evt.preventDefault) {
-      evt.preventDefault(); // prevent form from submitting
-	} else {
-      evt.returnValue = false; // prevent form from submitting in IE8
-	}
-	//formValidity = true; // reset value for revalidation
-	validateBirthDate();
-	validateEnrollment();
-	
-} 
-
-/* create event listeners */
-function createEventListeners() {
-   var birthMonth = document.getElementById("birthMo");
-   if (birthMonth.addEventListener) {
-     birthMonth.addEventListener("change", updateDays, false); 
-   } else if (birthMonth.attachEvent)  {
-     birthMonth.attachEvent("onchange", updateDays);
-   }
-
-   var birthYear = document.getElementById("birthYr");
-   if (birthYear.addEventListener) {
-     birthYear.addEventListener("change", updateDays, false); 
-   } else if (birthYear.attachEvent)  {
-     birthYear.attachEvent("onchange", updateDays);
-   }
-   
-   var form = document.getElementsByTagName("signupButton");
-   if (form.addEventListener) {
-      form.addEventListener("submit", validateForm, false);
-   } else if (form.attachEvent) {
-      form.attachEvent("onsubmit", validateForm);
-   }
-}
-
-function setUpPage() {
-   setupDays();
-   createEventListeners();
-}
-
-/* run setup functions when page finishes loading */
-if (window.addEventListener) {
-   window.addEventListener("load", setUpPage, false);
-} else if (window.attachEvent) {
-   window.attachEvent("onload", setUpPage);
-}
-
-
-
-
-function submitEnrollment () {
-	//var formValidity = true;
-	email = document.getElementById("emailAdd").value;
-	birthday = document.getElementById("birthMo").value + "/" + document.getElementById("birthDy").value + "/" + document.getElementById("birthYr").value
-	option = "";//document.getElementById("contactType").value;
-	
-	validateBirthDate();
-	validateEnrollment();
-	if (formValidity === true) {
-		    window.alert("Form Sumitted Successfully\n  Email: " + email + "\n  Birthdate: " + birthday + "\n  Option: " + option);
-	} else {
-			window.alert("Ensure all fields complete and you have opted in/out");
-	}
-}
-document.getElementById("signupButton").addEventListener("click",submitEnrollment,false);
-
-
-
-
-
-
-
-
-
-function calcYears () {
-
-			var releaseYear = 1977;
-			var birthYear = document.getElementById("birthYear").value;
-			var numYear = birthYear - releaseYear;
+		function userOnline () {
+			var onlineMsg = "test";
 			
-					
-			if (numYear < 0) {
-				msg = "You were " + numYear*-1 + " years old when Star Wars was released";
-				document.getElementById("vMsg").innerHTML = msg; 
+			if(navigator.onLine)
+			{
+				onlineMsg = "Browser is online";
+				document.getElementById("onlineMsg").innerHTML = msg;
 			}
-			else {
-				msg = "Star Wars was released " + numYear + " years before you were born";
-				document.getElementById("vMsg").innerHTML = msg; 
+			else
+			{
+				onlineMsg = "Browser is offline";
+				document.getElementById("onlineMsg").innerHTML = msg;
 			}
 		}
-document.getElementById("getMessage").addEventListener("click",calcYears,false);
-
-
-
-
-function getReleaseDate() {
-	try {
-			var v_releaseDate = ""
-			var movieSelected = document.getElementById("release").value;
+		
+		function calcDates () {
 			
-			// alert window to display user selection to verify it was assed correctly
-			// alert window to display user selection to verify it was assed correctly
-			//window.alert(movieSelected);
-			//console.log("user selected: " + movieSelected);
-			/* 
-				I used the above to validate the variable was being passed and the value.  I was having trouble getting the box to display the 
-				message and I wasnt sure if the variable was blank, what the value was and why the decision tree wasn't acting correctly
-			 */
-			// alert window to display user selection to verify it was assed correctly
-			// alert window to display user selection to verify it was assed correctly
+			var dateToday = new Date();
+			// Had to add current time's minutes/seconds/nano otherwise the math did not work correct.
+			var htmlMonth = Number(document.getElementById("dmonth").value)-1;
+			var dateUser = new Date(Date.UTC(document.getElementById("dyear").value, htmlMonth, document.getElementById("dday").value, dateToday.getMinutes(), dateToday.getSeconds()));
+			//dateUser = dateUser.setMonth(dateUser.getMonth()+1);
+			var pageMsg; 
+			var daysInMonth;
+			var month;
+			var startMonth;
+			var endMonth;
+			var startDay;
+			var endDay;
+			var startYear;
+			var endYear;
 			
-			switch (movieSelected) {
-				case "Ep IV":
-					v_releaseDate = "05/25/1977";
-					break;
-				case "Ep V":
-					v_releaseDate = "05/21/1980";
-					break;
-				case "Ep VI":
-					v_releaseDate = "05/25/1983";
-					break;
-				case "Ep I":
-					v_releaseDate = "05/19/1999";
-					break;
-				case "Ep II":
-					v_releaseDate = "05/16/2002";
-					break;
-				case "Ep III":
-					v_releaseDate = "05/19/2005";
-					break;
-				case "Ep VI":
-					v_releaseDate = "12/18/2015";
-					break;
-				case "Ep VII":
-					v_releaseDate = "12/15/2017";
-					break;
-				case "Solo":
-					v_releaseDate = "05/10/2018";
-					break;
-				case "Rogue One":
-					v_releaseDate = "12/16/2016";
-					break;
-				default:
-					throw "Invalid Selection, please pick again."
+			var userMonth;
+			var userDay;
+			var userYear;
+			
+			var currentMonth;
+			var currentDay;
+			var currentYear;
+			
+			var diffMonths;
+			var diffDays;
+			var diffYears;
+			
+			userMonth = dateUser.getUTCMonth();
+			userDay = dateUser.getUTCDate();
+			userYear = dateUser.getFullYear();
+			//window.alert("User entered: " + userMonth + "/" + userDay + "/" + userYear);// + " Todays Date: " + fromDate + "To Date: " + toDate + " From Date: " + fromDate + "  Days Between: " + nbrDaysBetween);
+						
+			// Javascript Months are zero base, need to add one			
+			currentMonth = dateToday.getUTCMonth();
+			currentDay = dateToday.getUTCDate();
+			currentYear = dateToday.getFullYear();
+			
+			// sets the user month or the current month for the calculation based on which os greater 
+			if (dateToday.getDate() > dateUser.getDate()) {
+				month = userMonth
+			} month = currentMonth
+			
+			// determines the number of days in the month for calculation (literally taken from the example in the book)
+			if (month === 0 || month === 2 || month === 4 || month === 6 || 
+				month === 7 || month === 9 || month === 11) {  // Jan, Mar, May, Jul, Aug, Oct, Dec -- already moved from the zero based to actual month #
+					daysInMonth = 31;
+				} else if (month === 2) { //Feb
+					if ( userYear % 100 === 0 ) {
+						if (userYear % 400 === 0) {
+							daysInMonth = 29;
+						} else {
+							daysInMonth = 28;
+						}
+					} else { 
+							daysInMonth= 29;
+					}
+				} else // Apr, Jun, Sep, Nov
+					daysInMonth = 30;
+			
+			// completes calculation based on which date is greater
+			if (dateToday < dateUser) {
+				//window.alert("Inputted is greater than today's date");
+				
+				
+				startMonth = currentMonth;
+				endMonth = userMonth;
+				startDay = currentDay;
+				endDay = userDay;
+				startYear = currentYear;
+				endYear = userYear;
+			} else {
+				//window.alert("Today is greater than inputted date");
+				startMonth = userMonth;
+				endMonth = currentMonth;
+				startDay = userDay;
+				endDay = currentDay;
+				startYear = userYear;
+				endYear = currentYear;
 			}
-			document.getElementById("vReleaseDateMsg").innerHTML = movieSelected + ":\r\n" + v_releaseDate; 
+				
+			// Calculate difference in years
+			diffYears = endYear - startYear;	
+			
+			// Calculate difference in months
+			diffMonths = endMonth - startMonth; 
+			if (diffMonths <0) {
+					diffYears -=1;  // if # mnonths < 0 then is negative which means even though the # diff between years is > 0 it could be 11 months or less
+			} else {}	
+			
+			// Calculate difference in between days of month taking the number of days in the month in account.
+			if (Number(diffMonths)==1 && endDay < startDay) {
+				//Should be less than one month
+				diffMonths -= 1;
+				//window.alert("1");
+				//diffDays = daysInMonth - startDay + endDay
+					if (dateToday.getDate() > dateUser.getDate()){ 
+						diffDays = (dateUser.getDate() - dateToday.getDate())*-1;
+					} else {
+						diffDays = (dateToday.getDate() - dateUser.getDate())*-1;
+					}				
+			} else if (Number(diffMonths)==1 && dateToday.getDate() > dateUser.getDate()) {
+				diffDays = endDay - startDay;
+				//window.alert("2" + htmlMonth);
+			} else {
+				diffDays = endDay - startDay;
+				//window.alert("3 " + htmlMonth);				
+			}
+								
+			document.getElementById("dateCalc").innerHTML = diffYears + " Years | " + diffMonths + " Month | " + diffDays + " Days";
+			
+			//window.alert(month);
+			//window.alert("Years: " + diffYears + " Month: " + diffMonths + " Days: " + diffDays + 
+			//			 "\nDiff Months: " + diffMonths + " User Entered Month: " + userMonth + " " + document.getElementById("dmonth").value + " " + currentMonth +
+			//             "\nStart Month: " + startMonth + " End Month: " + endMonth +
+			//			 "\nStart Day: " + startDay + " End Day: " + endDay +
+			//			 "\nStart Year: " + startYear + " End Year: " + endYear
+			//			 );			
+		}
+		document.getElementById("btnclick").addEventListener("click",calcDates,false);
+				
+				
+		function calcYears () {
 		
-	}		
-	catch(error) 
-	{
-		window.alert(error);
-		return false;
-	}			
-}
+					var releaseYear = 1977;
+					var birthYear = document.getElementById("birthYear").value;
+					var numYear = birthYear - releaseYear;
+					
+							
+					if (numYear < 0) {
+			 			msg = "You were " + numYear*-1 + " years old when Star Wars was released";
+						document.getElementById("vMsg").innerHTML = msg; 
+					}
+					else {
+						msg = "Star Wars was released " + numYear + " years before you were born";
+						document.getElementById("vMsg").innerHTML = msg; 
+					}
+				}
+				
+				
+		document.getElementById("getMessage").addEventListener("click",calcYears,false);
 		
-document.getElementById("releaseDate").addEventListener("click",getReleaseDate,false);
-
-
-
+		function getReleaseDate() {
+			try {
+					var v_releaseDate = ""
+					var movieSelected = document.getElementById("release").value;
+					
+					// alert window to display user selection to verify it was assed correctly
+					// alert window to display user selection to verify it was assed correctly
+					//window.alert(movieSelected);
+					//console.log("user selected: " + movieSelected);
+					/* 
+						I used the above to validate the variable was being passed and the value.  I was having trouble getting the box to display the 
+						message and I wasnt sure if the variable was blank, what the value was and why the decision tree wasn't acting correctly
+					 */
+					// alert window to display user selection to verify it was assed correctly
+					// alert window to display user selection to verify it was assed correctly
+					
+					switch (movieSelected) {
+						case "Ep IV":
+							v_releaseDate = "05/25/1977";
+							break;
+						case "Ep V":
+							v_releaseDate = "05/21/1980";
+							break;
+						case "Ep VI":
+							v_releaseDate = "05/25/1983";
+							break;
+						case "Ep I":
+							v_releaseDate = "05/19/1999";
+							break;
+						case "Ep II":
+							v_releaseDate = "05/16/2002";
+							break;
+						case "Ep III":
+							v_releaseDate = "05/19/2005";
+							break;
+						case "Ep VI":
+							v_releaseDate = "12/18/2015";
+							break;
+						case "Ep VII":
+							v_releaseDate = "12/15/2017";
+							break;
+						case "Solo":
+							v_releaseDate = "05/10/2018";
+							break;
+						case "Rogue One":
+							v_releaseDate = "12/16/2016";
+							break;
+						default:
+							throw "Invalid Selection, please pick again."
+					}
+					document.getElementById("vReleaseDateMsg").innerHTML = movieSelected + ":\r\n" + v_releaseDate; 
+				
+			}		
+			catch(error) 
+			{
+				window.alert(error);
+				return false;
+			}			
+		}
+				
+		document.getElementById("releaseDate").addEventListener("click",getReleaseDate,false);

@@ -33,6 +33,7 @@
 		<p><a href="about you.html">About You!</a></p>
 		<p><a href="dateForm.html">Fun Dates!</a></p>
 		
+		
 		<p></p>
 		<p></p>
 		<p>Select a movie below to see it's release date.</p>
@@ -52,12 +53,45 @@
 		<p id="vReleaseDateMsg"></p>
 	</div>
 	<!--   main body -->
-	<div id="main"
-		<pt2>Welcome to my page.  This is where I get to display all of the Star Wars Lego sets I own, or plan to purchase.</pt2>
-		<div id = "main-pic">
-			<img src="Ultimate.jpg" class="center">
-		</div>
-			
+	<!--   Creates the table for the list and populates with the information
+			also runs the script to gather the users information and present it back to them along the bottom -->
+	<div id="dateMain2"
+	</div>
+	<div id="dateMain"
+		<article>
+		  <fieldset class="text" style = "width: 500px; margin 20px;">			
+            <legend>Enter Date</legend>
+			<table>
+				<col width="50">
+				<col width="10">
+				<col width="50">
+				<col width="10">
+				<col width="50">
+				<tr>
+					<th>Month</th>
+					<th></th>
+					<th>Day</th>
+					<th></th>
+					<th>Year</th>
+				</tr>
+					<td><input type="number" id="dmonth" /></td>
+					<td>/</td>
+					<td><input type="number" id="dday" /></td>
+					<td>/</td>
+					<td><input type="number" id="dyear" /></td>
+				</tr>
+				<tr>
+					<td colspan="5"><input type="button" value="Click" id="btnclick" /></td>
+				</tr>
+				<tr>
+					<td colspan="5"><h3></h3></td>
+				</tr>
+				<tr>
+					<td align=cetner colspan="5"><p id=dateCalc></p></td>
+				</tr>
+			</table>
+         </fieldset>
+		</article>			
 	</div>
 	
 	<!--   bottom section -->
