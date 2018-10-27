@@ -1,5 +1,5 @@
 "use strict";  // intereperet contents in JavaScript strict mode
-
+var legosets = [];
 var dateObject = new Date();
 
 		var msg = "";
@@ -139,7 +139,7 @@ var dateObject = new Date();
 			//			 "\nStart Year: " + startYear + " End Year: " + endYear
 			//			 );			
 		}
-		document.getElementById("btnclick").addEventListener("click",calcDates,false);
+		
 				
 				
 		function calcYears () {
@@ -161,6 +161,7 @@ var dateObject = new Date();
 				
 				
 		document.getElementById("getMessage").addEventListener("click",calcYears,false);
+		//document.getElementById("btnclick").addEventListener("click",calcDates,false);
 		
 		function getReleaseDate() {
 			try {
@@ -223,3 +224,51 @@ var dateObject = new Date();
 		}
 				
 		document.getElementById("releaseDate").addEventListener("click",getReleaseDate,false);
+		
+		
+		// add user selections to the diplay section
+		function registerSelection(event) {
+			if (event === undefined) { // get caller element in IE8
+				event = window.event;
+				}
+			var callerElement = event.target || event.srcElement;
+			var legoName = callerElement.value;
+			if (callerElement.checked) { 
+			//add checked items to the array
+				legosets.push(legoName);
+
+				// add checkbox value to list in profile section
+				var newLegos = document.createElement("li");
+				newLegos.innerHTML = legoName;
+				document.getElementById("profileLegos").appendChild(newLegos);
+      
+			} else { // if box has just been unchecked
+				var listItems = document.querySelectorAll("#profileLegos li");
+				for (var i = 0; i < listItems.length; i++) {
+					if (listItems[i].innerHTML === legoName) {
+						legosets.splice(i, 1);
+						listItems[i].parentNode.removeChild(listItems[i]);
+						break;
+					}
+				}
+			}
+		}
+
+		function createEventListeners() {
+			var setSeletions = document.getElementsByName("setSeletions");
+			if (setSeletions[0].addEventListener) {
+				for (var i = 0; i < setSeletions.length; i++) {
+					setSeletions[i].addEventListener("change", registerSelection, false);
+					}
+			} else if (setSeletions[0].attachEvent) {
+				for (var i = 0; i < setSeletions.length; i++) {
+				setSeletions[i].attachEvent("onchange", registerSelection);
+				}
+			}
+	}
+
+if (window.addEventListener) {
+   window.addEventListener("load", createEventListeners, false);
+} else if (window.attachEvent) {
+   window.attachEvent("onload", createEventListeners);
+}

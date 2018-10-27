@@ -18,12 +18,12 @@
 	<script src="modernizr.custom.05819.js"></script>
   </head>
   <body>
-	<div id="header">
-		<p><center>Jason's Star Wars Lego Collection</center></p>
-	</div>
+	//<div id="header">
+	//	<p><center>Jason's Star Wars Lego Collection</center></p>
+	//</div>
 	
 	<!--   left side navigation section -->
-	<div id="left"
+	<div id="left">
 	    <p><a href="index.html">Home</a></p>
 	    <p><a href="original-trilogy.html">Original Trilogy</a></p>
 		<p><a href="prequels.html">Prequels</a></p>
@@ -55,42 +55,85 @@
 	<!--   main body -->
 	<!--   Creates the table for the list and populates with the information
 			also runs the script to gather the users information and present it back to them along the bottom -->
-	<div id="dateMain2"
+	<div id="dateMain2">
 	</div>
-	<div id="dateMain"
+	<div id="dateMain">
 		<article>
-		  <fieldset class="text" style = "width: 500px; margin 20px;">			
-            <legend>Enter Date</legend>
+		  <fieldset class="text" style = "width: 900px; margin 20px;">			
+            <legend></legend>
 			<table>
 				<col width="50">
-				<col width="10">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
 				<col width="50">
 				<col width="10">
-				<col width="50">
+				<col width="350">
 				<tr>
-					<th>Month</th>
+					<th>User Name</th>
 					<th></th>
-					<th>Day</th>
+					<th>Password</th>
 					<th></th>
-					<th>Year</th>
-				</tr>
-					<td><input type="number" id="dmonth" /></td>
-					<td>/</td>
-					<td><input type="number" id="dday" /></td>
-					<td>/</td>
-					<td><input type="number" id="dyear" /></td>
+					<th>Password (Confirm)</th>
+					<th></th>
+					<th>Email</th>
+					<th></th>
+					<th></th>
 				</tr>
 				<tr>
-					<td colspan="5"><input type="button" value="Click" id="btnclick" /></td>
+					<td><input type="text" id="userName" /></td>
+					<td></td>
+					<td><input type="text" id="password1" /></td>
+					<td></td>
+					<td><input type="text" id="password1" /></td>
+					<td></td> 	
+					<td><input type="text" id="email" /></td>
+					<td></td>
+					
 				</tr>
 				<tr>
-					<td colspan="5"><h3></h3></td>
+					<td colspan="2" align="left">><p id="passwordError" class="errorMsg"></p></td>
+					<td></td>
+					<td colspan="2" align="left"><p id="emailError" class="errorMsg"></p></td>
 				</tr>
 				<tr>
-					<td align=cetner colspan="5"><p id=dateCalc></p></td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" align="left">Prefered Lego Sets</td>
+				</tr>
+				<tr>					
+					<td><input type="checkbox" id="orig" value="Original Series" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="orig" id="origLabel">Original Series</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="preq" value="Prequels" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="preq" id="prequelLabel">Prequels</label></td>
+				</tr>
+				<tr>				
+					<td><input type="checkbox" id="alone" value="Stand Alone Movies" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="alone" id="standaloneLabel">Stand Alone Movies</label></td>					
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="ultimate" value="Ultimate Sets" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="ultimate" id="ultimateLabel">Ultimate Sets</label></td>					
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="ep78" value="Episodes 7/8" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="ep78" id="ep78Label">Episodes 7/8</label></td>
+				</tr>
+				<tr>
+					<td colspan="5"><input type="button" value="Click" id="btn2click" /></td>
 				</tr>
 			</table>
          </fieldset>
+				<fieldset class="text" style = "width: 900px; margin 20px;">			
+				<legend>Selections</legend>
+				<p id="profileLegos"></p>
+				</fieldset>
 		</article>			
 	</div>
 	
