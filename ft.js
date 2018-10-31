@@ -1,6 +1,11 @@
 "use strict";  // intereperet contents in JavaScript strict mode
 var legosets = [];
 var dateObject = new Date();
+var arrayString;
+var profile = {};
+var gEmailSelection =  "test";
+var gUsernameSelection = "test";
+
 
 		var msg = "";
 		
@@ -241,7 +246,10 @@ var dateObject = new Date();
 				var newLegos = document.createElement("li");
 				newLegos.innerHTML = legoName;
 				document.getElementById("profileLegos").appendChild(newLegos);
-      
+				
+				//document.getElementById("profile").style.display = "block";
+				//document.getElementById("legosSection").style.display = "block";
+	  
 			} else { // if box has just been unchecked
 				var listItems = document.querySelectorAll("#profileLegos li");
 				for (var i = 0; i < listItems.length; i++) {
@@ -254,6 +262,105 @@ var dateObject = new Date();
 			}
 		}
 
+		// validate entered username
+		function validateUsername() {
+		   var unInput = document.getElementById("userName");
+		   var errorDiv = document.getElementById("userNameError");
+		   try {
+				//if (unInput.value.length < 4) {
+				if (/.{4}/.test(unInput.value) === false) {
+					throw "Username must be at least 4 chars long";
+				} else if (/\W/.test(unInput.value) === true) {
+					throw "Username mustcontain only letters and numbers";
+				}
+
+			  // remove any username error styling and message
+			  unInput.style.background = "";
+			  errorDiv.style.display = "none";
+			  errorDiv.innerHTML = "";
+			  // copy valid username value to profile object
+			  gUsernameSelection = document.getElementById("userName").value;
+			  }
+		   catch(msg) {
+			  // display error message
+			  errorDiv.style.display = "block";
+			  errorDiv.innerHTML = msg;
+			  // change input style
+			  unInput.style.background = "rgb(255,233,233)";
+		   }
+		}
+
+		function validatePassword () {
+			var pw1 = document.getElementById("password1");
+			var pw2 = document.getElementById("password2");
+			var errorMsg = document.getElementById("pwError");
+			
+			try {
+				if (/.{8}/.test(pw1.value) === false) {
+					throw "Passwords must be at least 8 chars";
+				} else if (pw1.value.localeCompare(pw2.value) !== 0) {
+					throw "Passwords must match";
+				} else if (/[a-zA-Z]/.test(pw1.value) === false) {
+					throw "Password must contain at least one letter";
+				} else if (/\d/.test(pw1.value) === false) {
+					throw "Password must contain at least one number";
+				} else if (/[!@#_]/.test(pw1.value) === false) {
+					throw "Password must ontain at least one of the following ! @ # _";
+				}
+
+			  // remove any password error styling and message
+			  pw1.style.background = "";
+			  pw2.style.background = "";
+			  pwError.style.display = "none";
+			  pwError.innerHTML = "";
+			  // copy valid password to profile object
+			  profile.password = pw1.value;
+		   }
+		   catch(msg) {
+			  // display error message
+			  //pwError.style.display = "block";
+			  pwError.innerHTML = msg;
+			  // change input fiekd background for error
+			  pw1.style.background = "rgb(255,233,233)";
+			  pw2.style.background = "rgb(255,233,233)";      
+		   }
+			
+		}
+		
+		
+		function validateEmail() {
+		   var emailInput = document.getElementById("email");
+		   var errorDiv = document.getElementById("emailError");
+		   var emailCheck = /^[_\w\-]+(\.[_\w\-]+)*@[\w\-]+(\.[\w\-]+)*(\.[\D]{2,6})$/;
+		   try {
+				if (emailCheck.test(emailInput.value) === false) {
+					throw "Please provide a valid email address";
+				}
+			  // remove any email error styling and message
+			  emailInput.style.background = "";
+			  errorDiv.innerHTML = "";
+			  errorDiv.style.display = "none";
+			  // convert email address to lowercase
+			  emailInput.value = emailInput.value.toLowerCase();
+			  gEmailSelection.value = emailInput.value.toLowerCase();
+		   }  
+		   catch(msg) {
+			  // display error message
+			  errorDiv.innerHTML = msg;
+			  errorDiv.style.display = "block";
+			  // change input style
+			  emailInput.style.background = "rgb(255,233,233)";
+			  } 
+		   
+		}
+		function convertToString() {
+			arrayString = legosets.toString();
+			document.getElementById("profileUsername").innerHTML = document.getElementById("userName").value;//gUsernameSelection;
+			document.getElementById("profileEmail").innerHTML = document.getElementById("email").value;//gEmailSelection;
+			document.getElementById("profileLegoSets").innerHTML = arrayString;
+		}
+		
+		
 		function createEventListeners() {
 			var setSeletions = document.getElementsByName("setSeletions");
 			if (setSeletions[0].addEventListener) {
@@ -265,6 +372,27 @@ var dateObject = new Date();
 				setSeletions[i].attachEvent("onchange", registerSelection);
 				}
 			}
+			
+			var unInput = document.getElementById("userName");
+			var pw2 = document.getElementById("password2");
+			var emailInput = document.getElementById("email");
+			if (pw2.addEventListener) {
+				  unInput.addEventListener("change", validateUsername, false); 
+				  pw2.addEventListener("change", validatePassword, false); 
+				  emailInput.addEventListener("change", validateEmail, false); 
+			   } else if (unInput.attachEvent) {
+				  unInput.attachEvent("onchange", validateUsername);
+				  pw2.attachEvent("onchange", validatePassword);
+				  emailInput.attachEvent("onchange", validateEmail);
+			   }
+			
+			var button = document.getElementById("btn2click");
+			   if (button.addEventListener) {
+				   button.addEventListener("click", convertToString, false);
+			   } else if (button.attachEvent) {
+				   button.addEventListener("onclick", convertToString);
+			   }
+			
 	}
 
 if (window.addEventListener) {
