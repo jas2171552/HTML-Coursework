@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- 
+    Author: Jason Richmond
+	Date: 9/8/2018
+	CIS166:  Jason's Star Wars Collection
+   -->
+
+   <title>Jason's Star Wars Lego Collection</title>
+    <meta charset="utf-8">
+    <!-- 
+		<title>Jason's Star Wars Lego Collection</title>
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="modernizr.custom.05819.js"></script>
+	<link rel="stylesheet" href="starwarsstyle.css">
+	<script src="modernizr.custom.05819.js"></script>
+  </head>
+  <body>
+	
+	<!--   left side navigation section -->
+	<div id="left">
+	    <p><a href="index.html">Home</a></p>
+	    <p><a href="original-trilogy.html">Original Trilogy</a></p>
+		<p><a href="prequels.html">Prequels</a></p>
+		<p><a href="first-order-trilogy.html">First Order Trilogy</a></p>
+		<p><a href="Stand-alone.html">Stand Alone</a></p>
+		<p><a href="ultimate-sets.html">Ultimate Sets</a></p>
+		<p><a href="about you.html">About You!</a></p>
+		<!-- <p><a href="dateForm.html">Fun Dates!</a></p> -->
+		<p><a href="CreateAccount.html">Create Account</a></p>
+		
+		<p></p>
+		<p></p>
+		<p>Select a movie below to see it's release date.</p>
+		<select id="release">
+		  <option value="Ep I">Ep I - Phantom Menace</option>
+		  <option value="Ep II">Ep II - Attack of the Clones</option>
+		  <option value="Ep III">Ep III - Revenge of the Sith</option>
+		  <option value="Ep IV">Ep IV - A New Hope</option>
+		  <option value="Ep V">Ep V - Empire Strike Back</option>
+		  <option value="Ep VI">Ep VI - Return of the Jedi</option>
+		  <option value="Ep VII">Ep VII - Force Awakens</option>
+		  <option value="Ep VIII">Ep VII - The Last Jedi</option>
+		  <option value="Solo">Star Wars Story - Solo</option>
+		  <option value="Rogue">Star Wars Story - Rogue One</option>
+		</select>
+		<button type="button" id="releaseDate">Submit</button>
+		<p id="vReleaseDateMsg"></p>
+	</div>
+	<!--   main body -->
+	<!--   Creates the table for the list and populates with the information
+			also runs the script to gather the users information and present it back to them along the bottom -->
+	<div id="dateMain2">
+	</div>
+	<div id="dateMain">
+		<article>
+		  <fieldset class="text" style = "width: 900px; margin 20px;">			
+            <legend></legend>
+			<table>
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="10">
+				<col width="350">
+				<tr>
+					<th>User Name</th>
+					<th></th>
+					<th>Password</th>
+					<th></th>
+					<th>Password (Confirm)</th>
+					<th></th>
+					<th>Email</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td><input type="text" id="userName" /></td>
+					<td></td>
+					<td><input type="text" id="password1" /></td>
+					<td></td>
+					<td><input type="text" id="password2" /></td>
+					<td></td> 	
+					<td><input type="text" id="email" /></td>
+					<td></td>
+					
+				</tr>
+				<tr>
+					<td colspan="5" align="left"><p id="userNameError" class="errorMsg"></p></td>
+				</tr>
+				<tr>
+					<td colspan="5" align="left"><p id="pwError" class="errorMsg"></p></td>
+				</tr>
+				<tr>
+					<td colspan="5" align="left"><p id="emailError" class="errorMsg"></p></td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" align="left">Prefered Lego Sets</td>
+				</tr>
+				<tr>					
+					<td><input type="checkbox" id="orig" value="Original Series" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="orig" id="origLabel">Original Series</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="preq" value="Prequels" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="preq" id="prequelLabel">Prequels</label></td>
+				</tr>
+				<tr>				
+					<td><input type="checkbox" id="alone" value="Stand Alone Movies" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="alone" id="standaloneLabel">Stand Alone Movies</label></td>					
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="ultimate" value="Ultimate Sets" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="ultimate" id="ultimateLabel">Ultimate Sets</label></td>					
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="ep78" value="Episodes 7/8" name="setSeletions" /></td>
+					<td colspan="4" align="left"><label for="ep78" id="ep78Label">Episodes 7/8</label></td>
+				</tr>
+				<tr>
+					<td colspan="5"><input type="button" value="Click" id="btn2click" /></td>
+				</tr>
+			</table>
+			
+         </fieldset>
+		
+		<fieldset class="text" style = "width: 900px; margin 20px;">			
+			<legend>Selections</legend>
+				<p id="profileLegos"></p>
+		</fieldset>
+		
+		
+		<fieldset class="text" style = "width: 900px; margin 20px;">	
+			<legend>User Profile</legend>
+					<p id="profileUsername"></p>
+					<p id="profileEmail"></p>
+					<p id="profileLegoSets"></p>
+		</fieldset>
+
+	</article>						
+	<div>
+	
+	<!--   bottom section -->
+	<!--   bottom section -->
+	<div id="bottom">
+		<pt3>Jason Richmond	CIS166AA
+		<form id="calcYears">
+		<table style="width 50%" align="center">
+				<fieldset>
+					<legend>What Year were you born?</legend>
+					<table style="width 50%" align="center">
+					<tr>
+						<td>
+							<input type="number" min="1900" max="2018" id="birthYear" value="" />
+							<label for="birthYear"></label>
+						</td>
+						<td>
+							<button type="button" id="getMessage">Get Message</button>
+						</td>	
+						<td>
+							<label><p id="vMsg"></p></label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+			</form>
+		
+		</pt3>
+	</div>
+	<script src="ft.js"></script>
+  </body>
+</html>
+
