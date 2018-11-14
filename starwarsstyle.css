@@ -190,3 +190,8 @@ form {
     margin-left: 16%;
     margin-right: auto;
 }
+
+#map {
+	width: 1000px;
+	height: 450px;
+}
