@@ -195,3 +195,29 @@ form {
 	width: 1000px;
 	height: 450px;
 }
+
+
+#NASA {
+	margin-left: 16%;
+    margin-right: auto;
+	background-color: #893939;
+}
+
+#NASA-pic{
+	width: 900px;
+	height: 400px;
+	margin-top: 25px;
+	font-size: 20px;
+	display: block;
+    //margin-left: 16%;
+    margin-right: auto;
+
+}
+
+#NASA-table {
+	border-collapse: collapse;
+	margin-left: 16%;
+	font-size: 17px;
+	padding: 0px;
+	border-spacing: 0px;
+}
