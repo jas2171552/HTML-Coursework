@@ -37,6 +37,11 @@ fieldset {
 	width:750px;
 	
 }
+fieldset fieldsetmain {
+	width:750px;
+	height: 200px;
+	
+}
 fieldset legend {
 	margin-top: 10px;
 }
@@ -107,7 +112,7 @@ form {
     bottom:0;
     //width:1530px;
 	width: 100%;
-    height:120px;  
+    height:200px;  
 	background-color: #893939;
 	color: black;
 	font-size: 20px;
@@ -220,4 +225,71 @@ form {
 	font-size: 17px;
 	padding: 0px;
 	border-spacing: 0px;
+}
+
+
+
+
+
+
+/* navigation */
+nav {
+   float: left;
+   font-size: 14px;
+   width: 150px;
+   height: 45px;
+   text-align: center;
+}
+
+nav ul {
+   width: 100%;
+}
+
+nav ul li {
+   width: 120px;
+   display: block;
+   float: left;
+   background-color: #893939;
+   color: white;
+   font-size: 20px;
+}
+
+nav ul li p {
+   line-height: 45px;
+   font-size: 1.4em;
+   font-size: 20px;
+}
+
+nav ul li:hover {
+   background: #893939;
+   color: white;
+   font-size: 20px;
+}
+
+nav ul ul {
+   position: relative;
+   z-index: 10;
+   display: none;
+   background: rgb(0,0,0);
+   font-size: 20px;
+}
+
+nav ul ul.show {
+   display: block;
+}
+
+nav ul ul li {
+   clear: left;
+   text-align: left;
+   line-height: normal;
+   height: auto;
+   padding: 0.4em;
+   border: 2px solid rgb(0,0,0); 
+   font-size: 20px;
+}
+
+nav ul ul li:hover {
+   color: rgb(77,118,163);
+   background: white;
+   font-size: 20px;
 }
